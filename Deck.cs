@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -125,6 +126,20 @@ namespace ConsoleAppCG1
 
             return str;
 
+        }
+
+        public void FindPair()
+        {
+            int[] cnts = new int[14];
+            foreach (var c in cards)
+            {
+                cnts[c.number]++;
+            }
+
+            foreach (var item in cnts)
+            {
+                Console.Write(item + " ");
+            }
         }
     }
 
