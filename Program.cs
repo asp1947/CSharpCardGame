@@ -4,7 +4,10 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Card c = new Card(Card.Mark.Heart, 1);
+            Console.WriteLine(c);
+            Card c2 = new Card(Card.Mark.BlackJoker, Card.JOKER);
+            Console.WriteLine(c2);
         }
     }
 }
