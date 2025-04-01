@@ -57,12 +57,25 @@ namespace ConsoleAppCG1
             cards = cards.OrderBy(_ => rand.Next()).ToList();
         }
 
+        public Card GetCardAt(int idx)
+        {
+            if (cards.Count-1 < idx)
+                return null;
+
+            return cards[idx];
+        }
+        public void SetOpenAll(bool IsOpen = true)
+        {
+            foreach (var c in cards)
+            {
+                c.SetOpen(IsOpen);
+            }
+        }
+
         public Card Give()
         {
             if (cards.Count == 0)
-            {
                 return null;
-            }
             Card c = cards[0];
             cards.RemoveAt(0);
 
