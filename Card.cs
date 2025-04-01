@@ -16,6 +16,8 @@ namespace ConsoleAppCG1
         public readonly int number;  // 0 ~ 13
         public readonly string name; // Spade A
 
+        private bool IsOpen = false;
+
         //상수
         public static readonly int JOKER = 0;
         public static readonly string MARKS = "♠♥♣◆    ";
@@ -63,7 +65,7 @@ namespace ConsoleAppCG1
         //객체를 문자열로 반환하기 위한 메서드(모든 클래스에 있는 메서드)
         public override string ToString()
         {
-            return name;
+            return IsOpen ? name : "##";
         }
     }
 }
