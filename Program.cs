@@ -10,7 +10,7 @@
             Console.WriteLine(deck);
             Console.WriteLine(p1);
             Console.WriteLine(p2);
-
+            deck.Shuffle();
             Card c = deck.Give();
             p1.Take(c);
             

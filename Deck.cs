@@ -50,6 +50,13 @@ namespace ConsoleAppCG1
             return name;
         }
 
+        //https://holjjack.tistory.com/313 참조
+        public void Shuffle()
+        {
+            Random rand = new Random();
+            cards = cards.OrderBy(_ => rand.Next()).ToList();
+        }
+
         public Card Give()
         {
             if (cards.Count == 0)
@@ -90,6 +97,8 @@ namespace ConsoleAppCG1
             }
             return true;
         }
+        
+
 
         public override string ToString()
         {
