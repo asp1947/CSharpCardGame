@@ -15,9 +15,12 @@ namespace ConsoleAppCG1
         public readonly Mark mark; // 4종류의 카드
         public readonly int number;  // 0 ~ 13
         public readonly string name; // Spade A
-        //공통 사항
+
+        //상수
         public static readonly int JOKER = 0;
-        public static readonly string marks = "♠♥♣◆    ";
+        public static readonly string MARKS = "♠♥♣◆    ";
+
+        //공통 사항
         public static readonly string[] names = { "JOKER", "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
         public static readonly Color[] mark2color = [Color.Black, Color.Red, Color.Black, Color.Red, Color.Black, Color.Red];
 
@@ -49,7 +52,7 @@ namespace ConsoleAppCG1
 
             color = mark2color[(int)mark];
 
-            this.name = marks[(int)mark].ToString() + names[number];
+            this.name = MARKS[(int)mark].ToString() + names[number];
         }
         //객체를 문자열로 반환하기 위한 메서드(모든 클래스에 있는 메서드)
         public override string ToString()
