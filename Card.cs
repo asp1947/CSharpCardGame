@@ -67,5 +67,15 @@ namespace ConsoleAppCG1
         {
             return IsOpen ? name : "##";
         }
+
+        public void SetOpen(bool IsOpen)
+        {
+            this.IsOpen = IsOpen;
+        }
+        public bool GetOpen()
+        {
+            return IsOpen;
+        }
+
     }
 }
