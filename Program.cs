@@ -4,10 +4,20 @@
     {
         static void Main(string[] args)
         {
-            Card c = new Card(Card.Mark.Heart, 1);
-            Console.WriteLine(c);
-            Card c2 = new Card(Card.Mark.BlackJoker, Card.JOKER);
-            Console.WriteLine(c2);
+            List<Card> deck = new List<Card>();
+
+            
+
+            for (int i = 1; i <= 13; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    Card.Mark m = (Card.Mark)j;
+
+                    Card c = new Card(m, i);
+                    Console.WriteLine(c);
+                }
+            }
         }
     }
 }
