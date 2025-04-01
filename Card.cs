@@ -56,7 +56,7 @@ namespace ConsoleAppCG1
             if (number != JOKER)
                 this.name = MARKS[(int)mark].ToString() + names[number];
             else
-                this.name = names[number];
+                this.name = mark == Mark.BlackJoker ? names[number].ToLower() : names[number].ToUpper();
 
             //this.name = ((number == JOKER) ? "" : MARKS[(int)mark] )+ names[number];
         }
