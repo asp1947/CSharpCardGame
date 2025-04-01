@@ -10,8 +10,12 @@ namespace ConsoleAppCG1
     class Deck
     {
         private List<Card> cards = new List<Card>();
-        public Deck(bool create_new_deck    =false)
+        private string name;
+
+        public Deck(string name, bool create_new_deck    =false)
         {
+            this.name = name;
+
             if (create_new_deck)
             {
                 CreateNewDeck();
@@ -35,10 +39,39 @@ namespace ConsoleAppCG1
             cards.Add(new Card(Card.Mark.BlackJoker, Card.JOKER));
             cards.Add(new Card(Card.Mark.ColorJoker, Card.JOKER));
         }
+        //Setter 함수
+        public void SetName(string name)
+        {
+            this.name = name;
+        }
+        //외부 정보 제공, Getter 함수
+        public string GetName()
+        {
+            return name;
+        }
+
+        public Card Give()
+        {
+            if (cards.Count == 0)
+            {
+                return null;
+            }
+            Card c = cards[0];
+            cards.RemoveAt(0);
+
+            return c;
+        }
+        public void Take(Card c)
+        {
+            if (c == null)
+                return;
+            cards.Add(c);
+        }
+
         public override string ToString()
         {
 
-            string str = "";
+            string str = name + ":";
 
             foreach (var item in cards)
             {
