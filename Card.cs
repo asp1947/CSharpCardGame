@@ -51,13 +51,14 @@ namespace ConsoleAppCG1
             //}
 
             color = mark2color[(int)mark];
-            
-            if(number != JOKER )
+
+            //JOKER 입력시 빈칸 출력 문제 해결
+            if (number != JOKER)
                 this.name = MARKS[(int)mark].ToString() + names[number];
             else
                 this.name = names[number];
-            
-            //this.name = ((number != JOKER) ? "" : MARKS[(int)mark] + names[number]);
+
+            //this.name = ((number == JOKER) ? "" : MARKS[(int)mark] )+ names[number];
         }
         //객체를 문자열로 반환하기 위한 메서드(모든 클래스에 있는 메서드)
         public override string ToString()
