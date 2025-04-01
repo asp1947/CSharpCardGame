@@ -143,14 +143,82 @@ namespace ConsoleAppCG1
             Console.WriteLine();
 
             string[] strpairs = { "", "", "pair", "triple", "four card", "??"};
+            int[] npairs = [6];
 
             for (int i = 1; i < 13; i++)
             {
                 int c = cnts[i];
                 if (cnts[i] < 2)
                     continue;
+                npairs[c]++;
                 Console.WriteLine($"{i}:{strpairs[c]}");
 
+            }
+            if (npairs[4] == 1)
+                Console.WriteLine("four card");
+            else if (npairs[3] == 1)
+            {
+                if (npairs[2] == 1)
+                    Console.WriteLine("full house");
+                else
+                    Console.WriteLine("triple");
+            }
+            else if (npairs[2] == 2)
+                Console.WriteLine("two pair");
+            else if (npairs[2] == 1)
+                Console.WriteLine("one pair");
+        }
+
+
+        public void FindStraight()
+        {
+            int[] cnts = new int[14];
+            foreach (var c in cards)
+            {
+                cnts[c.number]++;
+            }
+
+            foreach (var item in cnts)
+            {
+                Console.Write(item + " ");
+            }
+            
+            Console.WriteLine();
+
+            for (int i = 1; i <= 13; i++)
+            {
+                int sum = 0;
+                for (int j = 0; j < 5; j++)
+                {
+                    int idx = i + j;
+                    if (idx > 13)   //12 -> 13 -> A
+                        idx -=13;
+                    
+                    sum += cnts[idx];
+                }
+                if (sum == 5)
+                {
+                    bool royal = (i == 10);
+                    int[] nmarks = new int[4];
+                    foreach (var c in cards)
+                    {
+                        nmarks [(int)c.mark]++;
+                    }
+                    bool Flush = false;
+                    for (int j = 0; j < nmarks.Length; j++)
+                    {
+                        if (nmarks[j] == 5)
+                            Flush = true;
+                    }
+                    if (Flush) { 
+                        if (royal)
+                            Console.WriteLine("Royal Straight Flush");
+                        else
+                            Console.WriteLine("Straight Flush");
+                    }
+                    else
+                        Console.WriteLine("Straight");
+                }
             }
         }
     }

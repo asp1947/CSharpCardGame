@@ -29,7 +29,8 @@
             foreach (var p in players)
             {
                 p.SetOpenAll();
-                p.FindPair();
+                //p.FindPair();
+                p.FindStraight();
                 Console.WriteLine(p.ToString());
             }
         }
