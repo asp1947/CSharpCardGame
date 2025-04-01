@@ -140,6 +140,18 @@ namespace ConsoleAppCG1
             {
                 Console.Write(item + " ");
             }
+            Console.WriteLine();
+
+            string[] strpairs = { "", "", "pair", "triple", "four card", "??"};
+
+            for (int i = 1; i < 13; i++)
+            {
+                int c = cnts[i];
+                if (cnts[i] < 2)
+                    continue;
+                Console.WriteLine($"{i}:{strpairs[c]}");
+
+            }
         }
     }
 
