@@ -33,6 +33,15 @@
                 p.FindStraight();
                 Console.WriteLine(p.ToString());
             }
+            //FindStraight() 테스트 목적
+            Deck tz = new Deck("타짜");
+            tz.Take(new Card(Card.Mark.Spade, 10));
+            tz.Take(new Card(Card.Mark.Spade, 11));
+            tz.Take(new Card(Card.Mark.Spade, 12));
+            tz.Take(new Card(Card.Mark.Spade, 13));
+            tz.Take(new Card(Card.Mark.Spade, 1));
+            tz.SetOpenAll();
+            tz.FindStraight();
         }
     }
 }

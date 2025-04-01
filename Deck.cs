@@ -193,13 +193,15 @@ namespace ConsoleAppCG1
                     int idx = i + j;
                     if (idx > 13)   //12 -> 13 -> A
                         idx -=13;
+
                     
-                    sum += cnts[idx];
+                    sum = cnts[idx] != 1 ? 0 : sum +1;
                 }
                 if (sum == 5)
                 {
                     bool royal = (i == 10);
                     int[] nmarks = new int[4];
+
                     foreach (var c in cards)
                     {
                         nmarks [(int)c.mark]++;
