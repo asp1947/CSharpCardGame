@@ -2,26 +2,36 @@
 {
     internal class Program
     {
+        //인원수, 카드 5장
+        public const int N_PLAYERS = 3;
+        public const int N_CARDS = 5;
         static void Main(string[] args)
         {
-            Deck deck = new Deck("새카드", true);
-            Deck p1 = new Deck("플레이어1");
-            Deck p2 = new Deck("플레이어2");
-            Console.WriteLine(deck);
-            Console.WriteLine(p1);
-            Console.WriteLine(p2);
-            deck.Shuffle();
-            Card c = deck.Give();
-            p1.Take(c);
-            
-            //p2.Take(deck.Give());
-            p2.TakeFrom(deck, 3);
-            
-            p2.GiveTo(p1, 1);
+            Deck deck = new Deck("딜러", true);
+            Deck[] players = new Deck[N_PLAYERS];
 
-            Console.WriteLine(deck);
-            Console.WriteLine(p1);
-            Console.WriteLine(p2);
+            for (int i = 0; i < players.Length; i++)
+            {
+                players[i] = new Deck($"플레이어 {i + 1}");
+            }
+            //Deck 셔플
+            deck.Shuffle();
+
+            for (int i = 0; i < N_CARDS; i++)
+            {
+                for (int j = 0; j < players.Length ; j++)
+                {
+                    Deck p = players[j];    //별명
+                    p.TakeFrom(deck, 1);
+                }
+            }
+
+            foreach (var p in players)
+            {
+                p.SetOpenAll();
+                p.FindPair();
+                Console.WriteLine(p.ToString());
+            }
         }
     }
 }
