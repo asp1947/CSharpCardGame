@@ -61,11 +61,34 @@ namespace ConsoleAppCG1
 
             return c;
         }
-        public void Take(Card c)
+        public bool Take(Card c)
         {
             if (c == null)
-                return;
+                return false;
             cards.Add(c);
+            return true;
+        }
+
+        public bool TakeFrom(Deck d, int cnt)
+        {
+            if (d.cards.Count < cnt)
+                return false;
+            for (int i = 0; i < cnt; i++)
+            {
+                cards.Add(d.Give());
+            }
+            return true;
+        }
+
+        public bool GiveTo(Deck d, int cnt)
+        {
+            if (cards.Count < cnt)
+                return false;
+            for (int i = 0; i < cnt; i++)
+            {
+                d.cards.Add(Give());
+            }
+            return true;
         }
 
         public override string ToString()

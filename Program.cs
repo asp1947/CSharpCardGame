@@ -13,10 +13,14 @@
 
             Card c = deck.Give();
             p1.Take(c);
-            p2.Take(deck.Give());
-            Console.WriteLine(deck);
-            Console.WriteLine("가져감: " + p1);
+            
+            //p2.Take(deck.Give());
+            p2.TakeFrom(deck, 3);
+            
+            p2.GiveTo(p1, 1);
 
+            Console.WriteLine(deck);
+            Console.WriteLine(p1);
             Console.WriteLine(p2);
         }
     }
